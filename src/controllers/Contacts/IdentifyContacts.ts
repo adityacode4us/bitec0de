@@ -15,8 +15,8 @@ const IdentifyContactsController = {
         order: [["createdAt", "ASC"]], // Order by creation date
       });
 
-      let primaryContact;
-      let secondaryContacts = [];
+      let primaryContact:any;
+      let secondaryContacts:any = [];
 
       if (contactsWithEmailOrPhone.length === 0) {
         // No existing contacts found, create a new primary contact
@@ -90,7 +90,7 @@ const IdentifyContactsController = {
         ),
       ];
       const secondaryContactIds = secondaryContacts.map(
-        (contact) => contact.id
+        (contact:any) => contact.id
       );
 
       return res.status(200).json({

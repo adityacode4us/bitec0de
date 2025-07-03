@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "nodemon",
-    "build": "tsc",
+    "build": "tsc --skipLibCheck",
     "dev": "nodemon",
     "prod": "node dist/index.js"
   },
