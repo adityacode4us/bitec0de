@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "ES2022",
+    "baseUrl": "src",
+    "esModuleInterop": true,
+    "target": "es6",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "lib": ["ES2022"],
+  "include": ["src/**/*","src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"],
+  
+}
