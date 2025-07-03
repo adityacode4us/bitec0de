@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-var whitelist = ["http://localhost:3000"];
+var whitelist = ["http://localhost:3000", "https://your-app-name.railway.app", "https://your-app-name.onrender.com"];
 const corsOptions: cors.CorsOptions = {
   origin: (
     origin: string | undefined,
@@ -59,6 +59,7 @@ const dbTestingAndConnection = async () => {
 };
 dbTestingAndConnection();
 
-const httpServer = app.listen(APP_PORT, () => {
-  console.log(`Our chat app is running on port ${APP_PORT}`);
+const PORT = process.env.PORT || APP_PORT || 3000;
+const httpServer = app.listen(PORT, () => {
+  console.log(`Our chat app is running on port ${PORT}`);
 });

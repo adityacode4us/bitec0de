@@ -13,7 +13,10 @@
     "typescript": "^5.5.2"
   },
   "scripts": {
-    "start": "nodemon"
+    "start": "nodemon",
+    "build": "tsc",
+    "dev": "nodemon",
+    "prod": "node dist/index.js"
   },
   "dependencies": {
     "@types/cookie-parser": "^1.4.7",
