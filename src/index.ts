@@ -17,25 +17,29 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-var whitelist = ["http://localhost:3000", "https://your-app-name.railway.app", "https://your-app-name.onrender.com"];
-const corsOptions: cors.CorsOptions = {
-  origin: (
-    origin: string | undefined,
-    callback: (err: Error | null, allow: boolean) => void
-  ) => {
-    if (!origin || whitelist.includes(origin as string)) {
-      callback(null, true); // Allow the request
-    } else {
-      callback(new Error("Not allowed by CORS"), false); // Deny the request
-    }
-  },
-  credentials: true,
-  optionsSuccessStatus: 200,
-  methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
-  allowedHeaders: ["Content-Type", "Authorization"],
-};
+var whitelist = [
+  "http://localhost:3000",
+  "https://your-app-name.railway.app",
+  "https://your-app-name.onrender.com",
+];
+// const corsOptions: cors.CorsOptions = {
+//   origin: (
+//     origin: string | undefined,
+//     callback: (err: Error | null, allow: boolean) => void
+//   ) => {
+//     if (!origin || whitelist.includes(origin as string)) {
+//       callback(null, true); // Allow the request
+//     } else {
+//       callback(new Error("Not allowed by CORS"), false); // Deny the request
+//     }
+//   },
+//   credentials: true,
+//   optionsSuccessStatus: 200,
+//   methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+//   allowedHeaders: ["Content-Type", "Authorization"],
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Credentials", "true");
@@ -61,5 +65,5 @@ dbTestingAndConnection();
 
 const PORT = process.env.PORT || APP_PORT || 3000;
 const httpServer = app.listen(PORT, () => {
-  console.log(`Our chat app is running on port ${PORT}`);
+  console.log(`Our bitecode server is running on port ${PORT}`);
 });
