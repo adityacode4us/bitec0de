@@ -46,7 +46,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/api", routes);
+app.use("", routes);
 
 // Error middleware when from routes redirected to this this middleware on next function
 app.use(errorHandler);
